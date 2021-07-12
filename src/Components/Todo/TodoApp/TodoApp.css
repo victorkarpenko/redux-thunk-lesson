@@ -1,0 +1,37 @@
+.TodoApp {
+  box-sizing: content-box;
+  background-color: #ff6b6b;
+  padding: 16px 32px;
+  color: #fff;
+  min-width: 350px;
+  position: relative;
+  box-shadow: -16px -16px 1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  margin-top: 64px;
+}
+.TodoApp__title {
+  font-size: 2.5rem;
+  font-weight: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  margin-bottom: 16px;
+}
+
+.TodoApp__title_h2 {
+  font-size: 1.5rem;
+  border-bottom: 0;
+  margin-bottom: 10px;
+}
+.TodoApp__todos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+.TodoApp__todos li {
+  width: 100%;
+}
+.TodoApp__todos li:last-child {
+  margin-bottom: 32px;
+}
