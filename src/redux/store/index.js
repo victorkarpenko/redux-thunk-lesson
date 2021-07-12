@@ -1,13 +1,14 @@
 import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { logger } from "../middlewares/logger";
+/* import { logger } from "../middlewares/logger"; */
 import thunk from "redux-thunk";
+import logger from 'redux-logger'
 import rootReducer from "../reducers";
+import {testMiddleware} from '../middlewares/testMiddleware';
 
 const globalState = createStore(
   rootReducer,
-  composeWithDevTools()
-  //composeWithDevTools(applyMiddleware(thunk, logger))
+  applyMiddleware(testMiddleware, logger, thunk)
 );
 
 export default globalState;

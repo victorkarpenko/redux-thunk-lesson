@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodoItem } from "../../../redux/actions/todo";
+import { addTodoItem, postTodoItem } from "../../../redux/actions/todo";
 import "./HookForm.css";
 
 const formInitialState = {
@@ -9,7 +9,7 @@ const formInitialState = {
   priority: "Low",
 };
 
-const HookForm = () => {
+const HookForm = ({itemIsFetching}) => {
   const [form, setForm] = useState(formInitialState);
   const dispatch = useDispatch();
 
@@ -22,7 +22,7 @@ const HookForm = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(addTodoItem(form));
+    dispatch(postTodoItem(form));
     setForm(formInitialState);
   };
   const { title, author, priority } = form;
@@ -59,7 +59,7 @@ const HookForm = () => {
         <option value="Medium">Medium</option>
         <option value="High">High</option>
       </select>
-      <button className="NewTodoForm__submit" type="button" onClick={submitHandler}>
+      <button className="NewTodoForm__submit" type="button" onClick={submitHandler} disabled={itemIsFetching}>
         Add Todo
       </button>
     </form>

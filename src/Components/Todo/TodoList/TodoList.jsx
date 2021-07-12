@@ -3,13 +3,14 @@ import "./TodoList.css";
 import TodoItem from "../TodoItem/TodoItem";
 import "./TodoList.css";
 
-const TodoList = ({items}) => {
+const TodoList = ({items, onDeleteItem, onUpdateItem}) => {
+
     return (
         <ul className="TodoList">
             {items.length ? (
                 items.map((todo) => (
                     <li key={todo.id}>
-                        <TodoItem {...todo} />
+                        <TodoItem {...todo} onDeleteItem={onDeleteItem} onUpdateItem={onUpdateItem} />
                     </li>
                 ))
             ) : (
